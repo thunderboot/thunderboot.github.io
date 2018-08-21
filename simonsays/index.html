@@ -3,7 +3,7 @@
  <head>
   <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
   <title>
-   The fantastic Thunderboot home on the web
+   Download Simon Says Ultimate now!
   </title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -18,7 +18,10 @@
     body {
         background: #FFF8C2; }
     section {
-        background: #E9E6B8;
+        background: url(graphics/simonsaysultimate.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
         color: #FEB95A;
         border-radius: 1em;
         padding: 1em;
@@ -28,33 +31,52 @@
         margin-right: -50%;
         transform: translate(-50%, -50%) }
     h1 {
-        font-size: calc(4vw + 4vh + 2vmin); }
+        font-family: Monospace;
+        font-size: calc(4vw + 4vh + 2vmin); 
+        text-align: center;
+        text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000; -1px -1px 0 #000;
+    }
     ul {
-        list-style-type: none; }
+        list-style-type: none;
+        margin: auto;
+    }
     ul > li {
         display: inline-block; }
     .storeimg {
-        max-width: 50%;
-        min-width: 15%;
-        height: auto; }
+        max-width: 200px;
+        min-width: 100px;
+        height: auto; 
+    }
+    #footer {
+        position:fixed;
+        left:0px;
+        bottom:0px;
+        height:150px;
+        width:100%;
+        /*background:#999;*/
+        text-align:center;
+    }
   </style>
  </head>
 
 <body>
  <section>
   <H1>SIMON SAYS</H1>
+  <H1>ULTIMATE</H1>
  </section>
 
-  <ul>
-   <li>
-    <a href='http://play.google.com/store/apps/details?id=com.thunderboot.simonsays&utm_source=website&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img class="storeimg" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
-   </li>
-   <li>
-      <a href="?mt=8" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a>
-   </li>
-   <li></li>
-   <li></li>
-  </ul>
+ <div id="footer">
+ <ul>
+  <li>
+   <a href='http://play.google.com/store/apps/details?id=com.thunderboot.simonsays&utm_source=website&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img class="storeimg" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
+  </li>
+  <li>
+   <a href=""><img class="storeimg" alt='Download on the App Store' src="graphics/appstore.png"/></a>
+  </li>
+  <li></li>
+  <li></li>
+ </ul>
+ </div>
 </body>
 
 </html>
