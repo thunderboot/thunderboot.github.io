@@ -1,0 +1,89 @@
+:root {
+	/*
+    #000000
+    #333333
+    #999966
+    #cccc99
+    #666666
+    #666633
+    #663333
+    #999999
+    #ffffcc
+    #333300
+	*/
+	--lightbackground-color:#ffffcc;
+	--darkbackground-color:#666666;
+	--primary-color:#c76d64;
+	--secondary-color:#ef9974;
+	--tertiary-color:#c2bb61;
+	--text-color:#000000;
+}
+
+body {
+	background: var(--darkbackground-color);
+	margin: 0; /* Needed when centering with the viewport. If not included, there will be a tiny bit to scroll */
+}
+
+
+.centerer { /*https://www.digitalocean.com/community/tutorials/css-centering-using-flexbox */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 75vh;
+}
+
+.menu {
+	background: var(--lightbackground-color);
+	position: absolute;
+	height: 20vh;
+	width: 100%; 
+	top: 80%; 
+	left: 0%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Ubuntu", sans-serif;
+	color: #fdba83;
+}
+.menuitem {
+	height: 7vh;
+	width: 7vh;
+	margin: 0 50px 0 50px;
+	padding: 10px;
+	
+	background-color: var(--darkbackground-color);
+	border-width: 4px;
+	border-color: #302F34;
+	border-style: solid;
+	border-radius: 10px;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.menuitemimage {
+	margin: 0;
+	padding: 0;
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: contain;
+	display: block;
+}
+
+.footer {
+	background: var(--lightbackground-color);
+	position: absolute;
+	height: 5vh; 
+	width: 100%; 
+	top: 95%; 
+	left: 0%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Ubuntu", sans-serif;
+	font-size: x-small;
+	font-weight: bold;
+	color: var(--darkbackground-color);
+}
