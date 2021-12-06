@@ -12,31 +12,49 @@
     #333300
 	*/
 	--lightbackground-color:#ffffcc;
-	--darkbackground-color:#666666;
+	--darkbackground-color:#222222;
 	--primary-color:#c76d64;
 	--secondary-color:#ef9974;
 	--tertiary-color:#c2bb61;
 	--text-color:#000000;
 }
 
-body {
-	background: var(--darkbackground-color);
-	margin: 0; /* Needed when centering with the viewport. If not included, there will be a tiny bit to scroll */
+html, body {
+	background: black;
+	margin:0px; /* Needed when centering with the viewport. If not included, there will be a tiny bit to scroll */
+	height:100%;
+}
+.background {
+	background:black;
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-image:url(graphics/Thunderboot_Cover.png);
+	background-size: cover;
+	height:80vh;
 }
 
+a {
+	margin:0px;
+	padding:0px;
+	max-width: 60%;
+    max-height: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 .centerer { /*https://www.digitalocean.com/community/tutorials/css-centering-using-flexbox */
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	height: 75vh;
+	height: 10vh;
 }
 
 .menu {
-	background: var(--lightbackground-color);
+	background: black;
 	position: absolute;
-	height: 20vh;
+	height: 15vh;
 	width: 100%; 
 	top: 80%; 
 	left: 0%;
@@ -47,33 +65,38 @@ body {
 	color: #fdba83;
 }
 .menuitem {
-	height: 7vh;
-	width: 7vh;
-	margin: 0 50px 0 50px;
-	padding: 10px;
-	
-	background-color: var(--darkbackground-color);
-	border-width: 4px;
-	border-color: #302F34;
-	border-style: solid;
-	border-radius: 10px;
-	
+	height: 10vh;
+	margin: 50px 0 0 0;
+	background-image: url(graphics/TB_Ring.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
+.menuitemtext {
+	height: 5vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Ubuntu", sans-serif;
+	color: #fff8c2;
+	font-size: large;
+}
+
 .menuitemimage {
 	margin: 0;
 	padding: 0;
-    max-width: 100%; 
-    max-height: 100%; 
+    max-width: 60%;
+    max-height: 60%;
     object-fit: contain;
 	display: block;
 }
 
 .footer {
-	background: var(--lightbackground-color);
+	background: black;
 	position: absolute;
 	height: 5vh; 
 	width: 100%; 
@@ -85,5 +108,5 @@ body {
 	font-family: "Ubuntu", sans-serif;
 	font-size: x-small;
 	font-weight: bold;
-	color: var(--darkbackground-color);
+	color: black /*#7e2cb3*/; /*var(--text-color);*/
 }
