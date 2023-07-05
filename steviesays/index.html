@@ -1,82 +1,78 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
-  <title>
-   Download Stevie Says Ultimate now!
-  </title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=3">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=3">
-  <link rel="manifest" href="/site.webmanifest?v=3">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=3" color="#ffffff">
-  <link rel="shortcut icon" href="/favicon.ico?v=3">
-  <meta name="msapplication-TileColor" content="#302f34">
-  <meta name="theme-color" content="#302f34">
+<head>
+  <title>Stevie Says Ultimate</title>
   <style>
     body {
-        background: #302F34; }
-    section {
-        background: url(graphics/steviesaysultimate.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        color: #FEB95A;
-        border-radius: 1em;
-        padding: 1em;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%) }
-    h1 {
-        font-family: Monospace;
-        font-size: calc(4vw + 4vh + 2vmin); 
-        text-align: center;
-        /*text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000; -1px -1px 0 #000;*/
-        color: transparent;
+      /*background-image: url("graphics/background.png");
+      background-size: cover;*/
+      background-color: #050505;
+      margin: 0;
+      padding: 0;
     }
-    ul {
-        list-style-type: none;
-        margin: auto;
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 130px); /* Subtracting footer height and bottom-text */
     }
-    ul > li {
-        display: inline-block; }
-    .storeimg {
-        max-width: 200px;
-        min-width: 100px;
-        height: auto; 
+
+    .logo {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
     }
-    #footer {
-        position:fixed;
-        left:0px;
-        bottom:0px;
-        height:150px;
-        width:100%;
-        /*background:#999;*/
-        text-align:center;
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px; /* Adjust the desired height */
+    }
+
+    .store-link {
+      margin: 0 10px;
+      width: 150px;
+      height: auto;
+    }
+
+    .bottom-text {
+      text-align: center;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 10px 0;
+      background-color: transparent;
+      color: #2bdfba;
+      height: 30px;
+      line-height: 30px;
+      font-size: 0.8em;
+      font-family: monospace, monospace;
     }
   </style>
- </head>
-
+</head>
 <body>
- <section>
-  <H1>STEVIE SAYS</H1>
-  <H1>ULTIMATE</H1>
- </section>
+  <div class="container">
+    <img src="graphics/steviesaysultimate.png" alt="Logo" class="logo">
+  </div>
 
- <div id="footer">
- <ul>
-  <li>
-   <a href='http://play.google.com/store/apps/details?id=com.thunderboot.SimonSays&utm_source=website&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img class="storeimg" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
-  </li>
-  <li>
-   <a href="https://itunes.apple.com/app/simon-says-ultimate/id1437743308?mt=8"><img class="storeimg" alt='Download on the App Store' src="graphics/appstore.png"/></a>
-  </li>
-  <li></li>
-  <li></li>
- </ul>
- </div>
+  <footer class="footer">
+    <a href="https://apps.apple.com/app/stevie-says-ultimate/id1437743308" target="_blank">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1548979200" alt="Download on the App Store" class="store-link">
+    </a>
+    <a href="http://play.google.com/store/apps/details?id=com.thunderboot.SimonSays" target="_blank">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="store-link">
+    </a>
+  </footer>
+
+  <div class="bottom-text">
+    &copy;<span id="year"></span> THUNDERBOOT
+    <script>
+      document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+  </div>
 </body>
-
 </html>
