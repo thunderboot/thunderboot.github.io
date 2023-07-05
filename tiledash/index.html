@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tiledash</title>
+  <style>
+    body {
+      background-image: url("graphics/background.png");
+      background-size: cover;
+      background-position: center; /* Center the background image */
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow: hidden; /* Prevent content from overflowing */
+      min-height: 100vh; /* Set minimum height to fill the entire viewport */
+    }
+
+    .container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 130px); /* Subtracting footer height and bottom-text */
+    }
+
+    .logo {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      position: relative;
+      z-index: 2; /* Ensure the logo appears on top of the flying images */
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px; /* Adjust the desired height */
+    }
+
+    .store-link {
+      margin: 0 10px;
+      width: auto;
+      height: 100%;
+    }
+
+    .bottom-text {
+      text-align: center;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 10px 0;
+      background-color: transparent;
+      color: #f4e8d8;
+      height: 30px;
+      line-height: 30px;
+      font-size: 0.8em;
+      font-family: monospace, monospace;
+    }
+	
+    .flyer {
+      position: absolute;
+      top: var(--start-y);
+      left: var(--start-x);
+      opacity: 0; /* Initially hide the flyer */
+      transform: translate(var(--translate-x), var(--translate-y)) rotate(var(--rotation)); /* Apply translation and rotation */
+      z-index: 1; /* Ensure the flyers appear behind the logo */
+    }
+
+    @keyframes fade-fly {
+      0% {
+        opacity: 0; /* Fade in */
+        transform: translate(var(--start-x), var(--start-y)) rotate(var(--rotation));
+      }
+      10% {
+        opacity: 1; /* Fully visible */
+      }
+      90% {
+        opacity: 1; /* Fully visible */
+      }
+      100% {
+        opacity: 0; /* Fade out */
+        transform: translate(var(--end-x), var(--end-y)) rotate(var(--rotation));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="graphics/tiledash.png" alt="Logo" class="logo">
+	<!-- Add more <img> tags for additional flying images -->
+    <img src="graphics/flying-image.png" alt="Flying Image 1" class="flyer">
+    <img src="graphics/flying-image.png" alt="Flying Image 2" class="flyer">
+    <img src="graphics/flying-image.png" alt="Flying Image 3" class="flyer">
+    <img src="graphics/flying-image.png" alt="Flying Image 4" class="flyer">
+    <img src="graphics/flying-image.png" alt="Flying Image 5" class="flyer">
+    <img src="graphics/flying-image.png" alt="Flying Image 6" class="flyer">
+    <img src="graphics/flying-image.png" alt="Flying Image 7" class="flyer">
+    <img src="graphics/flying-image.png" alt="Flying Image 8" class="flyer">
+    <img src="graphics/flying-image.png" alt="Flying Image 9" class="flyer">
+  </div>
+
+  <footer class="footer">
+    <a href="#" target="_blank">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1548979200" alt="Download on the App Store" class="store-link">
+    </a>
+    <a href="http://play.google.com/store/apps/details?id=com.thunderboot.tiledash" target="_blank">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="store-link">
+    </a>
+  </footer>
+
+  <div class="bottom-text">
+    &copy;<span id="year"></span> THUNDERBOOT
+    <script>
+      document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+  </div>
+  
+  <script>
+    // JavaScript code to randomize the flying direction and start positions
+    const flyers = document.querySelectorAll('.flyer');
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    const getRandomCoordinate = (min, max) => Math.random() * (max - min) + min;
+
+    flyers.forEach(flyer => {
+      let randomStartX, randomStartY, randomEndX, randomEndY, distanceX, distanceY, speed, duration, rotation;
+
+      const randomizeFlyer = () => {
+        const flyerWidth = flyer.clientWidth;
+        const flyerHeight = flyer.clientHeight;
+        randomStartX = getRandomCoordinate(-flyerWidth, viewportWidth);
+        randomStartY = getRandomCoordinate(-flyerHeight, viewportHeight);
+        randomEndX = getRandomCoordinate(-flyerWidth, viewportWidth);
+        randomEndY = getRandomCoordinate(-flyerHeight, viewportHeight);
+        distanceX = randomEndX - randomStartX;
+        distanceY = randomEndY - randomStartY;
+        speed = getRandomCoordinate(50, 300); // Random speed between 50 and 300 pixels per second
+        duration = Math.sqrt(distanceX ** 2 + distanceY ** 2) / speed; // Calculate duration based on total distance and speed
+
+        rotation = Math.atan2(distanceY, distanceX) * (180 / Math.PI); // Calculate rotation angle in degrees
+
+        flyer.style.setProperty('--start-x', `${randomStartX}px`);
+        flyer.style.setProperty('--start-y', `${randomStartY}px`);
+        flyer.style.setProperty('--end-x', `${randomEndX}px`);
+        flyer.style.setProperty('--end-y', `${randomEndY}px`);
+        flyer.style.setProperty('--translate-x', `${distanceX}px`);
+        flyer.style.setProperty('--translate-y', `${distanceY}px`);
+        flyer.style.setProperty('--duration', `${duration}s`);
+        flyer.style.setProperty('--rotation', `${rotation}deg`);
+
+        flyer.style.animation = 'none'; // Reset animation
+        void flyer.offsetWidth; // Trigger reflow
+        flyer.style.animation = `fade-fly ${duration}s linear infinite`; // Restart animation
+      };
+
+      flyer.addEventListener('animationiteration', randomizeFlyer);
+      randomizeFlyer();
+    });
+  </script>
+</body>
+</html>
