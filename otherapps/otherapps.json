@@ -1,0 +1,20 @@
+{
+  "apps": [
+    {
+      "id": "com.thunderboot.SimonSays",
+      "name": "Stevie Says Ultimate",
+      "image": "https://www.thunderboot.com/otherapps/graphics/com.thunderboot.SimonSays.png",
+      "androidurl": "https://play.google.com/store/apps/details?id=com.thunderboot.SimonSays",
+      "iosurl": "https://apps.apple.com/us/app/stevie-says-ultimate/id1437743308",
+      "date": "2024-04-05"
+    },
+    {
+      "id": "com.thunderboot.sudoku",
+      "name": "Sudoku Ultimate",
+      "image": "https://www.thunderboot.com/otherapps/graphics/com.thunderboot.sudoku.png",
+      "androidurl": "https://play.google.com/store/apps/details?id=com.thunderboot.sudoku",
+      "iosurl": "https://apps.apple.com/us/app/sudoku-ultimate/id6475161007",
+      "date": "2024-04-05"
+    }
+  ]
+}
