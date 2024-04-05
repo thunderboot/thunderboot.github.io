@@ -1,14 +1,16 @@
 {
-    "apps": [
-        {
-            "id": "com.thunderboot.simonsays",
-            "image": "https://www.thunderboot.com/simonsays/",
-            "date": "2024-04-05"
-        },
-        {
-            "id": "com.thunderboot.sudoku",
-            "image": "https://www.thunderboot.com/sudoku/",
-            "date": "2024-04-05"
-        }
-    ]
+  "apps": [
+    {
+      "id": "com.thunderboot.simonsays",
+      "name": "Stevie Says Ultimate",
+      "image": "https://www.thunderboot.com/steviesays/graphics/steviesaysultimate_icon.png",
+      "date": "2024-04-05"
+    },
+    {
+      "id": "com.thunderboot.sudoku",
+      "name": "Sudoku Ultimate",
+      "image": "https://www.thunderboot.com/sudoku/graphics/sudoku_icon.png",
+      "date": "2024-04-05"
+    }
+  ]
 }
