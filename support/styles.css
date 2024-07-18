@@ -1,0 +1,39 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #919191, #282828, #282828, #919191);
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
+}
+
+.centered-content {
+    font-size: 4rem;
+    color: #fff;
+    text-align: center;
+	font-family: 'Nabla', sans-serif;
+}
+
+.email-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
