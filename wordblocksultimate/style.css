@@ -10,7 +10,8 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden; /* Prevents the floating particles from creating a scroll bar */
-    background-color: #f0f0f0;
+	background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color for contrast */
     font-family: Arial, sans-serif;
 	position: relative;
     flex-direction: column; /* Stack the footer below the main content */
@@ -33,29 +34,29 @@ body {
     margin: 5px;
     background-size: cover;
 	background-image: url('https://placekitten.com/200/200');
-    background-color: #fff;
+    background-color: #1e1e1e; /* Dark background for blocks */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: bold;
-    color: black;  /* Ensure text is black */
+    color: #e0e0e0;  /* Light text color */
     position: absolute;
     opacity: 1;
     transform: rotate(0deg);
     transition: all 2s ease;
-    border: 1px solid #000;  /* Add border for better visibility */
+    border: 1px solid #333;  /* Add border for better visibility */
 }
 
 .block::before {
     content: attr(data-letter); /* Show the letter inside the block */
-    color: black;  /* Ensure the text is black and visible */
+    color: #e0e0e0;  /* Ensure the text is light and visible */
 }
 
 .circle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(34, 139, 34, 0.2); /* Subdued forest green */
+    background: rgba(34, 139, 34, 0.3); /* Subdued forest green */
     opacity: 0.6;
     animation: moveCircle 20s linear infinite;
 }
@@ -67,7 +68,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
     padding: 10px 0;
     display: flex;
 	flex-direction: column; /* Stack images and text */
@@ -88,7 +89,7 @@ footer {
 
 .copyright {
     font-size: 14px;
-    color: black;
+    color: #e0e0e0; /* Light text color for contrast */
     text-align: center;
     margin-top: 5px;
 }
