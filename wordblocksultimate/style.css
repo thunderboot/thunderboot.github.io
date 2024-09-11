@@ -12,6 +12,8 @@ body {
     overflow: hidden; /* Prevents the floating particles from creating a scroll bar */
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
+	position: relative;
+    flex-direction: column; /* Stack the footer below the main content */
 }
 
 #container {
@@ -21,6 +23,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+	flex-grow: 1; /* Allows the main content to grow and center itself */
 }
 
 .block {
@@ -55,6 +58,39 @@ body {
     background: rgba(34, 139, 34, 0.2); /* Subdued forest green */
     opacity: 0.6;
     animation: moveCircle 20s linear infinite;
+}
+
+
+/* Footer Styling */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+    padding: 10px 0;
+    display: flex;
+	flex-direction: column; /* Stack images and text */
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-images {
+    display: flex;
+    gap: 20px; /* Space between images */
+	margin-bottom: 10px; /* Add some space between the images and the copyright text */
+}
+
+.footer-images img {
+    width: auto;
+    height: 100px; /* Adjust the size as needed */
+}
+
+.copyright {
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    margin-top: 5px;
 }
 
 @keyframes pileAnimation {
