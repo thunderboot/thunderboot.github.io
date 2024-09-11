@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+#container {
+    position: relative;
+    width: 600px; /* Width of container for centering */
+    height: 300px; /* Adjust container height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    margin: 5px;
+    background-size: cover;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;  /* Ensure text is black */
+    position: absolute;
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: all 2s ease;
+    border: 1px solid #000;  /* Add border for better visibility */
+}
+
+.block::before {
+    content: attr(data-letter); /* Show the letter inside the block */
+    color: black;  /* Ensure the text is black and visible */
+}
+
+/* Predefined backgrounds for the squares */
+.block:nth-child(1) { background-image: url('https://placekitten.com/100/100'); }
+.block:nth-child(2) { background-image: url('https://placekitten.com/101/101'); }
+.block:nth-child(3) { background-image: url('https://placekitten.com/102/102'); }
+.block:nth-child(4) { background-image: url('https://placekitten.com/103/103'); }
+.block:nth-child(5) { background-image: url('https://placekitten.com/104/104'); }
+.block:nth-child(6) { background-image: url('https://placekitten.com/105/105'); }
+.block:nth-child(7) { background-image: url('https://placekitten.com/106/106'); }
+.block:nth-child(8) { background-image: url('https://placekitten.com/107/107'); }
+.block:nth-child(9) { background-image: url('https://placekitten.com/108/108'); }
+.block:nth-child(10) { background-image: url('https://placekitten.com/109/109'); }
+.block:nth-child(11) { background-image: url('https://placekitten.com/110/110'); }
+.block:nth-child(12) { background-image: url('https://placekitten.com/111/111'); }
+.block:nth-child(13) { background-image: url('https://placekitten.com/112/112'); }
+.block:nth-child(14) { background-image: url('https://placekitten.com/113/113'); }
+.block:nth-child(15) { background-image: url('https://placekitten.com/114/114'); }
+.block:nth-child(16) { background-image: url('https://placekitten.com/115/115'); }
+.block:nth-child(17) { background-image: url('https://placekitten.com/116/116'); }
+.block:nth-child(18) { background-image: url('https://placekitten.com/117/117'); }
+
+@keyframes pileAnimation {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) translate(0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(var(--random-rotation)) translate(var(--random-x), var(--random-y));
+    }
+}
+
+@keyframes moveToPosition {
+    0% {
+        transform: rotate(var(--random-rotation)) translate(var(--random-x), var(--random-y));
+    }
+    100% {
+        transform: translate(var(--final-x), var(--final-y)) rotate(0deg);
+        opacity: 1;
+    }
+}
