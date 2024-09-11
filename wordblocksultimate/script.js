@@ -1,3 +1,34 @@
+// JavaScript to create floating circles
+function createCircle() {
+    const body = document.body;
+    const circle = document.createElement('div');
+    circle.classList.add('circle');
+
+    const size = Math.random() * 50 + 50; // Circle size between 50px and 100px
+    circle.style.width = `${size}px`;
+    circle.style.height = `${size}px`;
+
+    // Random start position
+    circle.style.left = `${Math.random() * 100}vw`;
+    circle.style.top = `${Math.random() * 100}vh`;
+
+    // Random background color from a palette of foresty colors
+    const colors = ['rgba(34, 139, 34, 0.2)', 'rgba(85, 107, 47, 0.2)', 'rgba(139, 69, 19, 0.2)', 'rgba(0, 100, 0, 0.2)'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    circle.style.background = randomColor;
+
+    body.appendChild(circle);
+
+    // Circle moves and then fades out
+    setTimeout(() => {
+        circle.remove();
+    }, 20000); // Each circle stays on the screen for 20 seconds
+}
+
+// Continuously create circles
+setInterval(createCircle, 1000); // Creates a circle every second
+
+
 // Grab all the blocks
 const blocks = document.querySelectorAll('.block');
 

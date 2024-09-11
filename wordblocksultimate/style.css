@@ -9,6 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden; /* Prevents the floating particles from creating a scroll bar */
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
 }
@@ -28,6 +29,7 @@ body {
     border-radius: 10px;
     margin: 5px;
     background-size: cover;
+	background-image: url('https://placekitten.com/200/200');
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -47,25 +49,13 @@ body {
     color: black;  /* Ensure the text is black and visible */
 }
 
-/* Predefined backgrounds for the squares */
-.block:nth-child(1) { background-image: url('https://placekitten.com/100/100'); }
-.block:nth-child(2) { background-image: url('https://placekitten.com/101/101'); }
-.block:nth-child(3) { background-image: url('https://placekitten.com/102/102'); }
-.block:nth-child(4) { background-image: url('https://placekitten.com/103/103'); }
-.block:nth-child(5) { background-image: url('https://placekitten.com/104/104'); }
-.block:nth-child(6) { background-image: url('https://placekitten.com/105/105'); }
-.block:nth-child(7) { background-image: url('https://placekitten.com/106/106'); }
-.block:nth-child(8) { background-image: url('https://placekitten.com/107/107'); }
-.block:nth-child(9) { background-image: url('https://placekitten.com/108/108'); }
-.block:nth-child(10) { background-image: url('https://placekitten.com/109/109'); }
-.block:nth-child(11) { background-image: url('https://placekitten.com/110/110'); }
-.block:nth-child(12) { background-image: url('https://placekitten.com/111/111'); }
-.block:nth-child(13) { background-image: url('https://placekitten.com/112/112'); }
-.block:nth-child(14) { background-image: url('https://placekitten.com/113/113'); }
-.block:nth-child(15) { background-image: url('https://placekitten.com/114/114'); }
-.block:nth-child(16) { background-image: url('https://placekitten.com/115/115'); }
-.block:nth-child(17) { background-image: url('https://placekitten.com/116/116'); }
-.block:nth-child(18) { background-image: url('https://placekitten.com/117/117'); }
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(34, 139, 34, 0.2); /* Subdued forest green */
+    opacity: 0.6;
+    animation: moveCircle 20s linear infinite;
+}
 
 @keyframes pileAnimation {
     0% {
@@ -85,5 +75,15 @@ body {
     100% {
         transform: translate(var(--final-x), var(--final-y)) rotate(0deg);
         opacity: 1;
+    }
+}
+
+/* Keyframes to move circles across the screen */
+@keyframes moveCircle {
+    from {
+        transform: translateY(100vh) translateX(0px);
+    }
+    to {
+        transform: translateY(-100vh) translateX(100px);
     }
 }
