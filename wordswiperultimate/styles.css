@@ -1,0 +1,76 @@
+/* styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0e0e0e;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    max-width: 600px;
+}
+
+.letters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.letter {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    user-select: none;
+    transition: transform 0.5s ease;
+    position: relative;
+}
+
+
+/* Footer Styling */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 10px 0;
+    display: flex;
+	flex-direction: column; /* Stack images and text */
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-images {
+    display: flex;
+    gap: 20px; /* Space between images */
+	margin-bottom: 10px; /* Add some space between the images and the copyright text */
+}
+
+.footer-images img {
+    width: auto;
+    height: 100px; /* Adjust the size as needed */
+}
+
+.copyright {
+    font-size: 14px;
+    color: #e0e0e0; /* Light text color for contrast */
+    text-align: center;
+    margin-top: 5px;
+}
