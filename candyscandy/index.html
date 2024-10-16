@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snurrande bilder</title>
+    <style>
+        body, html {
+			background-color: #050505;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Huvuddel (Main content) */
+        .main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .center-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            z-index: 2;
+			animation: scaleAnimation 5s ease-in-out infinite;
+        }
+		/* Scale animation for the main image */
+        @keyframes scaleAnimation {
+            0%, 100% {
+                transform: scale(1); /* Normal size */
+            }
+            50% {
+                transform: scale(1.05); /* Increase size by 20% */
+            }
+        }
+
+        .orbit {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            animation: spin 20s linear infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .orbit img {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        /* Snurrande animation */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Placering av de 10 bilderna runt huvudbilden */
+        .orbit img:nth-child(1) { top: 50%; left: 0%; transform: translate(-50%, -50%); }
+        .orbit img:nth-child(2) { top: 15%; left: 15%; transform: translate(-50%, -50%); }
+        .orbit img:nth-child(3) { top: 0%; left: 50%; transform: translate(-50%, -50%); }
+        .orbit img:nth-child(4) { top: 15%; left: 85%; transform: translate(-50%, -50%); }
+        .orbit img:nth-child(5) { top: 50%; left: 100%; transform: translate(-50%, -50%); }
+        .orbit img:nth-child(6) { top: 85%; left: 85%; transform: translate(-50%, -50%); }
+        .orbit img:nth-child(7) { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+        .orbit img:nth-child(8) { top: 85%; left: 15%; transform: translate(-50%, -50%); }
+        .orbit img:nth-child(9) { top: 70%; left: 30%; transform: translate(-50%, -50%); }
+        .orbit img:nth-child(10) { top: 30%; left: 70%; transform: translate(-50%, -50%); }
+
+        /* Footer */
+        .footer {
+            height: 100px;
+            background-color: #050505;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer img {
+            height: 80px;
+            width: auto;
+            margin: 0 15px; /* Adds space between the two images */
+        }
+		
+
+        /* Bottom Text */
+        .bottom-text {
+            height: 30px;
+            background-color: #111;
+            color: #d837ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <!-- Centrerad huvudbild -->
+        <img src="graphics/candyscandy_icon.png" class="center-image">
+
+        <!-- Bilder som snurrar runt -->
+        <div class="orbit">
+            <img src="graphics/candy_1.png">
+            <img src="graphics/candy_2.png">
+            <img src="graphics/candy_3.png">
+            <img src="graphics/candy_4.png">
+            <img src="graphics/candy_5.png">
+            <img src="graphics/candy_6.png">
+            <img src="graphics/candy_7.png">
+            <img src="graphics/candy_8.png">
+            <img src="graphics/candy_9.png">
+            <img src="graphics/candy_10.png">
+        </div>
+    </div>
+
+
+  <footer class="footer">
+    <a href="https://apps.apple.com/us/app/candys-candy/id6717616273" target="_blank">
+      <img src="../graphics/appstore.png" alt="Download on the App Store">
+    </a>
+    <a href="http://play.google.com/store/apps/details?id=com.thunderboot.candyscandy" target="_blank">
+      <img src="../graphics/googleplay.png" alt="Get it on Google Play">
+    </a>
+  </footer>
+
+  <div class="bottom-text">
+    &copy;<span id="year"></span> THUNDERBOOT
+    <script>
+      document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+  </div>
+</body>
+</html>
