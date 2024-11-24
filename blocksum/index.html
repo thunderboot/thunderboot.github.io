@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blocksum</title>
+  
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  
+  <style>
+    body {
+      background-color: #050505;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 130px); /* Subtracting footer height and bottom-text */
+    }
+
+    .logo {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px; /* Adjust the desired height */
+    }
+
+    .footer img {
+      height: 60px;
+      object-fit: contain;
+      display: block;
+      margin: auto;
+      margin: 0 10px; /* Add spacing between images */
+    }
+
+    .bottom-text {
+      text-align: center;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 10px 0;
+      background-color: transparent;
+      color: #fe4f4c;
+      height: 30px;
+      line-height: 30px;
+      font-size: 0.8em;
+      font-family: monospace, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="graphics/blocksum.png" alt="Logo" class="logo">
+  </div>
+
+  <footer class="footer">
+    <a href="https://apps.apple.com/app/blocksum/id6737857374" target="_blank">
+      <img src="../graphics/appstore.png" alt="Download on the App Store">
+    </a>
+    <a href="http://play.google.com/store/apps/details?id=com.thunderboot.blocksum" target="_blank">
+      <img src="../graphics/googleplay.png" alt="Get it on Google Play">
+    </a>
+  </footer>
+
+  <div class="bottom-text">
+    &copy;<span id="year"></span> THUNDERBOOT
+    <script>
+      document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+  </div>
+</body>
+</html>
