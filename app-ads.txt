@@ -138,3 +138,38 @@ conversantmedia.com, 100863, RESELLER, 03113cd04947736d
 zetaglobal.net, 815, RESELLER
 rubiconproject.com, 26958, RESELLER, 0bfd66d529a55807
 smartclip.net, 27985, RESELLER
+admanmedia.com, 2242, RESELLER
+appnexus.com, 15349, RESELLER, f5ab79cb980f11d1
+betweendigital.com, 45329, RESELLER
+betweendigital.com, 45827, RESELLER
+bid-matrix.com, f2c71a45ea149366, RESELLER
+castify.ai, 1295184, RESELLER
+e-planning.net, 79686787743ddfc5, RESELLER, c1ba615865ed87b2
+eskimi.com, 2020000545, RESELLER
+improvedigital.com, 1664, RESELLER
+improvedigital.com, 2525, RESELLER
+inmobi.com, 0c8e054083954c68a45044396a1c3df8, RESELLER, 83e75a7ae333ca9d
+inmobi.com, 791b84bdd791470faa8dca5f04e6a83b, RESELLER, 83e75a7ae333ca9d
+inmobi.com, b01aa06531c543d8a5fb9982f60afb00, RESELLER, 83e75a7ae333ca9d
+lijit.com, 417620, RESELLER, fafdf38b16bf6b2b
+lijit.com, 546566, RESELLER, fafdf38b16bf6b2b
+onetag.com, 8c90176af2e65c8, RESELLER
+openx.com, 540871654, RESELLER, 6a698e2ec38604c6
+openx.com, 541017750, RESELLER, 6a698e2ec38604c6
+prado.co, 14260, RESELLER
+pubmatic.com, 165438, RESELLER, 5d62403b186f2ace
+pubnative.net, 1009988, RESELLER, d641df8625486a7b
+rhebus.works, 5000863388, RESELLER
+rubiconproject.com, 17130, RESELLER, 0bfd66d529a55807
+rubiconproject.com, 17960, RESELLER, 0bfd66d529a55807
+rubiconproject.com, 25336, RESELLER, 0bfd66d529a55807
+sharethrough.com, xekuhskz, RESELLER, d53b998a7bd4ecd2
+taurusx.com, 80029, RESELLER
+thunder-monetize.com, 8221217003, RESELLER
+tradplusad.com, b3fca24bd11c1242, RESELLER
+vidazoo.com, 66e04f5e4d7fd89d878d29d2, RESELLER, b6ada874b4d7d0b2
+video.unrulymedia.com, 2743945877, RESELLER
+video.unrulymedia.com, 498216989, RESELLER
+video.unrulymedia.com, 585054906, RESELLER
+video.unrulymedia.com, 755432070, RESELLER
+video.unrulymedia.com, 848837292, RESELLER
