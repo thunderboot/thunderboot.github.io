@@ -1,130 +1,298 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			background: url('graphics/background-image.png') no-repeat center center fixed;
-			background-size: cover;
-		}
-		
-		h1 {
-			font-size: 4em;
-			margin: 0;
-			padding: 1em;
-			color: white;
-			text-align: center;
-			position: absolute;
-			bottom: 200px;
-			left: 50%;
-			transform: translateX(-50%);
-			z-index: 1;
-		}
-		
-		.logo {
-			display: block;
-			margin: 0 auto;
-			max-width: 100%;
-			height: auto;
-			position: absolute;
-			top: calc(50% - 75px - 50px - 0.5em);
-			left: 50%;
-			transform: translate(-50%, -50%);
-			z-index: 1;
-		}
-		
-		.footer {
-			position: fixed;
-			bottom: 30px;
-			left: 0;
-			width: 100%;
-			height: 150px;
-			background-color: black;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			z-index: 2;
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunderboot</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-		
-		.icon {
-			display: inline-block;
-			width: 100px;
-			height: 100px;
-			margin: 0 10px;
-			background-color: transparent;
-			border-radius: 50%;
-			text-align: center;
-			line-height: 100px;
-			font-size: 1.5em;
-			color: black;
-			text-decoration: none;
-			position: relative;
-			overflow: hidden;
-		}
-		
-		.icon:hover {
-			background-color: rgba(0, 0, 0, 0.5);
-			color: white;
-		}
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
 
-		.icon img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-			display: block;
-			margin: auto;
-		}
-		
-		@media only screen and (max-width: 600px) {
-			h1 {
-				font-size: 2.5em;
-				bottom: 40px;
-			}
-			
-			.icon {
-				width: 30px;
-				height: 30px;
-				margin: 0 5px;
-				font-size: 1em;
-			}
-		}
-		
-		.bottom-footer {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			height: 30px;
-			background-color: black;
-			color: purple;
-			text-align: center;
-			line-height: 30px;
-			font-size: 0.8em;
-			font-family: monospace, monospace;
-		}
-		
-/*		.bottom-footer span {
-			color: white;
-			font-weight: bold;
-		}*/
-	</style>
+        body {
+            font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: clamp(1.8rem, 6vw, 4rem);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+        }
+
+        /* Main content area */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Container for logo and orbiting apps */
+        .orbit-container {
+            position: relative;
+            width: min(70vw, 70vh);
+            height: min(70vw, 70vh);
+            max-width: 600px;
+            max-height: 600px;
+        }
+
+        /* Center logo */
+        .center-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30%;
+            height: 30%;
+            z-index: 5;
+        }
+
+        .center-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+        }
+
+        /* App circles */
+        .app-circle {
+            position: absolute;
+            width: var(--circle-size, 70px);
+            height: var(--circle-size, 70px);
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .app-circle:hover {
+            transform: scale(1.15) !important;
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+            z-index: 100;
+        }
+
+        .app-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            color: #888;
+            z-index: 10;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            header {
+                padding: 15px 10px;
+            }
+
+            .orbit-container {
+                width: 85vw;
+                height: 85vw;
+                max-width: none;
+                max-height: none;
+            }
+
+            footer {
+                padding: 10px;
+            }
+        }
+
+        @media (orientation: landscape) and (max-height: 500px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            header {
+                padding: 10px;
+            }
+
+            .orbit-container {
+                width: 60vh;
+                height: 60vh;
+            }
+
+            footer {
+                padding: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
-	<img class="logo" src="graphics/tb_logo.png" alt="ThunderBoot Studios logo">
-	<div class="footer">
-		<a href="steviesays/" class="icon"><img src="steviesays/graphics/steviesaysultimate_icon.png" alt="Stevie Says Ultimate"></a>
-		<a href="tiledash/" class="icon"><img src="tiledash/graphics/tiledash_icon.png" alt="Tiledash"/></a>
-		<a href="sudoku/" class="icon"><img src="sudoku/graphics/sudoku_icon.png" alt="Sudoku - Ultimate"/></a>
-		<a href="colorpopmansion/" class="icon"><img src="colorpopmansion/graphics/colorpopmansion_logo.png" alt="Color Pop Mansion"/></a>
-	</div>
-	<div class="bottom-footer">
-		&copy;<span id="year"></span> THUNDERBOOT
-		<script>
-			document.getElementById("year").innerHTML = new Date().getFullYear();
-		</script>
-	</div>
+    <header>
+        <h1>Thunderboot</h1>
+    </header>
+
+    <main>
+        <div class="orbit-container" id="orbitContainer">
+            <div class="center-logo">
+                <img src="graphics/tb_logo.png" alt="Thunderboot Logo">
+            </div>
+            <!-- App circles will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright <span id="year"></span> Thunderboot</p>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // App data - add or remove apps here
+        const apps = [
+            { name: 'Stevie Says', folder: 'steviesays', icon: 'steviesays/graphics/steviesaysultimate_icon.png' },
+            { name: 'Sudoku', folder: 'sudoku', icon: 'sudoku/graphics/sudoku_icon.png' },
+            { name: 'Findle', folder: 'findle', icon: 'findle/icon.png' },
+            { name: 'Minesweeper', folder: 'minesweeper', icon: 'minesweeper/graphics/minesweeper_icon.png' },
+            { name: 'Color Pop Mansion', folder: 'colorpopmansion', icon: 'colorpopmansion/graphics/colorpopmansion_logo.png' },
+            { name: 'Tangram Mania', folder: 'tangrammania', icon: 'tangrammania/graphics/tangrammania_icon.png' },
+            { name: 'Tile Dash', folder: 'tiledash', icon: 'tiledash/graphics/tiledash_icon.png' },
+            { name: 'Block Sum', folder: 'blocksum', icon: 'blocksum/graphics/blocksum.png' },
+            { name: 'Candy\'s Candy', folder: 'candyscandy', icon: 'candyscandy/graphics/candyscandy_icon.png' }
+        ];
+
+        const container = document.getElementById('orbitContainer');
+
+        // Calculate circle size based on container and number of apps
+        function getCircleSize() {
+            const containerSize = container.offsetWidth;
+            // Circle size is proportional to container, but also depends on number of apps
+            const baseSize = containerSize * 0.15;
+            const maxSize = 90;
+            const minSize = 50;
+            return Math.max(minSize, Math.min(maxSize, baseSize));
+        }
+
+        // Create and position app circles
+        function createAppCircles() {
+            const circleSize = getCircleSize();
+            const containerSize = container.offsetWidth;
+            const centerX = containerSize / 2;
+            const centerY = containerSize / 2;
+            // Orbit radius - distance from center to circle centers
+            const orbitRadius = (containerSize / 2) - (circleSize / 2) - 10;
+
+            apps.forEach((app, index) => {
+                const circle = document.createElement('a');
+                circle.href = app.folder + '/';
+                circle.className = 'app-circle';
+                circle.title = app.name;
+                circle.style.setProperty('--circle-size', circleSize + 'px');
+
+                const img = document.createElement('img');
+                img.src = app.icon;
+                img.alt = app.name;
+                circle.appendChild(img);
+
+                // Calculate position in circle
+                // Start from top (-90 degrees) and go clockwise
+                const angle = ((2 * Math.PI) / apps.length) * index - (Math.PI / 2);
+                const x = centerX + orbitRadius * Math.cos(angle) - (circleSize / 2);
+                const y = centerY + orbitRadius * Math.sin(angle) - (circleSize / 2);
+
+                circle.style.left = x + 'px';
+                circle.style.top = y + 'px';
+
+                // Store original position and angle for floating animation
+                circle.dataset.baseX = x;
+                circle.dataset.baseY = y;
+                circle.dataset.angle = angle;
+                circle.dataset.index = index;
+
+                container.appendChild(circle);
+            });
+        }
+
+        // Floating animation
+        function animateFloating() {
+            const circles = document.querySelectorAll('.app-circle');
+            const time = Date.now() / 1000;
+
+            circles.forEach((circle, index) => {
+                const baseX = parseFloat(circle.dataset.baseX);
+                const baseY = parseFloat(circle.dataset.baseY);
+
+                // Each circle has slightly different animation timing
+                const offsetX = Math.sin(time * 0.8 + index * 0.7) * 8;
+                const offsetY = Math.cos(time * 0.6 + index * 0.9) * 8;
+
+                circle.style.left = (baseX + offsetX) + 'px';
+                circle.style.top = (baseY + offsetY) + 'px';
+            });
+
+            requestAnimationFrame(animateFloating);
+        }
+
+        // Recalculate positions on resize
+        function repositionCircles() {
+            const circleSize = getCircleSize();
+            const containerSize = container.offsetWidth;
+            const centerX = containerSize / 2;
+            const centerY = containerSize / 2;
+            const orbitRadius = (containerSize / 2) - (circleSize / 2) - 10;
+
+            const circles = document.querySelectorAll('.app-circle');
+            circles.forEach((circle, index) => {
+                circle.style.setProperty('--circle-size', circleSize + 'px');
+
+                const angle = ((2 * Math.PI) / apps.length) * index - (Math.PI / 2);
+                const x = centerX + orbitRadius * Math.cos(angle) - (circleSize / 2);
+                const y = centerY + orbitRadius * Math.sin(angle) - (circleSize / 2);
+
+                circle.dataset.baseX = x;
+                circle.dataset.baseY = y;
+            });
+        }
+
+        // Initialize
+        createAppCircles();
+        animateFloating();
+
+        // Handle resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(repositionCircles, 100);
+        });
+    </script>
 </body>
 </html>
