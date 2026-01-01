@@ -10,8 +10,8 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden; /* Prevents the floating particles from creating a scroll bar */
-	background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light text color for contrast */
+	background: linear-gradient(135deg, #b8a4d4 0%, #d4b8c8 25%, #c8dce4 75%, #a4d4e4 100%); /* Gradient matching icon */
+    color: #333333; /* Dark text color for contrast */
     font-family: Arial, sans-serif;
 	position: relative;
     flex-direction: column; /* Stack the footer below the main content */
@@ -30,33 +30,34 @@ body {
 .block {
     width: 60px;
     height: 60px;
-    border-radius: 10px;
+    border-radius: 12px;
     margin: 5px;
     background-size: cover;
 	background-image: url('https://placekitten.com/200/200');
-    background-color: #1e1e1e; /* Dark background for blocks */
+    background: linear-gradient(135deg, #f0a896 0%, #e89583 100%); /* Coral/salmon gradient matching icon */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: bold;
-    color: #e0e0e0;  /* Light text color */
+    color: #ffffff;  /* White text color */
     position: absolute;
     opacity: 1;
     transform: rotate(0deg);
     transition: all 2s ease;
-    border: 1px solid #333;  /* Add border for better visibility */
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
 }
 
 .block::before {
     content: attr(data-letter); /* Show the letter inside the block */
-    color: #e0e0e0;  /* Ensure the text is light and visible */
+    color: #ffffff;  /* White text */
 }
 
 .circle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(34, 139, 34, 0.3); /* Subdued forest green */
+    background: rgba(184, 164, 212, 0.3); /* Soft purple from icon */
     opacity: 0.6;
     animation: moveCircle 20s linear infinite;
 }
@@ -68,7 +69,8 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent light background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
     padding: 10px 0;
     display: flex;
 	flex-direction: column; /* Stack images and text */
@@ -89,7 +91,7 @@ footer {
 
 .copyright {
     font-size: 14px;
-    color: #e0e0e0; /* Light text color for contrast */
+    color: #555555; /* Dark text color for contrast */
     text-align: center;
     margin-top: 5px;
 }
